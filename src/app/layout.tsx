@@ -18,6 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <script
+          async
+          defer
+          src="https://static.cdn.prismic.io/prismic.js?new=true&repo=kidmortal"
+        ></script>
         <div className={styles.container}>{children}</div>
       </body>
     </html>
