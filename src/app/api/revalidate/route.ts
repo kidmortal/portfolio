@@ -10,9 +10,15 @@ export async function POST(req: Request) {
 
     for await (const doc of data.documents) {
       const page = await client.getByID(doc);
-      const slug = page.type;
-      revalidatePath(slug);
-      revalidatedPaths.push(slug);
+      if (page) {
+        const slug = page.type;
+        if (slug === "home") {
+          revalidatePath("/");
+        } else {
+          revalidatePath(slug);
+        }
+        revalidatedPaths.push(slug);
+      }
     }
     return NextResponse.json({
       revalidated: true,
