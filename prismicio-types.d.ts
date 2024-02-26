@@ -205,6 +205,83 @@ export type ProjectsDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomeDocument | PageDocument | ProjectsDocument;
 
 /**
+ * Primary content in *Header → Primary*
+ */
+export interface HeaderSliceDefaultPrimary {
+  /**
+   * logo field in *Header → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.primary.logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Header → Items*
+ */
+export interface HeaderSliceDefaultItem {
+  /**
+   * link field in *Header → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * icon field in *Header → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * label field in *Header → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.items[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Header Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeaderSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeaderSliceDefaultPrimary>,
+  Simplify<HeaderSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Header*
+ */
+type HeaderSliceVariation = HeaderSliceDefault;
+
+/**
+ * Header Shared Slice
+ *
+ * - **API ID**: `header`
+ * - **Description**: Header
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeaderSlice = prismic.SharedSlice<"header", HeaderSliceVariation>;
+
+/**
  * Primary content in *TechStack → Primary*
  */
 export interface TechStackSliceDefaultPrimary {
@@ -294,6 +371,11 @@ declare module "@prismicio/client" {
       ProjectsDocumentData,
       ProjectsDocumentDataSlicesSlice,
       AllDocumentTypes,
+      HeaderSlice,
+      HeaderSliceDefaultPrimary,
+      HeaderSliceDefaultItem,
+      HeaderSliceVariation,
+      HeaderSliceDefault,
       TechStackSlice,
       TechStackSliceDefaultPrimary,
       TechStackSliceDefaultItem,
