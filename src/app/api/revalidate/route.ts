@@ -3,31 +3,27 @@ import { revalidatePath } from "next/cache";
 import { createClient } from "@/prismicio";
 
 export async function POST(req: Request) {
-  const client = createClient();
   const data = await req.json();
-  if (data.documents) {
-    const revalidatedPaths: string[] = [];
-
-    for await (const doc of data.documents) {
-      console.log(doc);
-      const page = await client.getByID(doc);
-      console.log(page);
-      // if (page) {
-      //   const slug = page.uid;
-      //   if (slug === "home") {
-      //     revalidatePath("/");
-      //   } else {
-      //     revalidatePath(slug);
-      //   }
-      //   revalidatedPaths.push(slug);
-      // }
+  if (data.secret === process.env.PRISMIC_WEBHOOK_KEY) {
+    const revalidatedPaths = [];
+    const client = createClient();
+    revalidatePath("/");
+    revalidatedPaths.push("/");
+    const documents = await client.getAllByType("page");
+    for await (const doc of documents) {
+      revalidatePath(doc.uid);
+      revalidatedPaths.push(doc.uid);
     }
     return NextResponse.json({
       revalidated: true,
       now: Date.now(),
-      paths: revalidatedPaths,
+      revalidatedPaths,
     });
   }
 
-  return NextResponse.json({ revalidated: false, message: "no slug provided" });
+  return NextResponse.json({
+    revalidated: false,
+    message: "invalid secret",
+    secret: data.secret,
+  });
 }
