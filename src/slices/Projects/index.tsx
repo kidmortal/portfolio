@@ -27,15 +27,18 @@ const Projects = ({ slice }: ProjectsProps): JSX.Element => {
           <div key={project.title} className={styles.project}>
             <img alt={project.cover.alt ?? ""} src={project.cover.url ?? ""} />
             <div className={styles.contentContainer}>
-              <h3>{project.title}</h3>
-              <span>{project.description}</span>
+              <div className={styles.textContentContainer}>
+                <h1>{project.title}</h1>
+                <span>{project.description}</span>
+              </div>
+
               <div className={styles.linksContainer}>
                 <PrismicNextLink
                   key={`${JSON.stringify(project.preview)}`}
                   field={project.preview}
                 >
                   <LinkIcon />
-                  <span>Live Preview</span>
+                  <span>Preview</span>
                 </PrismicNextLink>
                 <PrismicNextLink
                   key={`${JSON.stringify(project.github)}`}
