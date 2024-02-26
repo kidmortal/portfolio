@@ -1,6 +1,7 @@
 import { createClient } from "@/prismicio";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
+import { notFound } from "next/navigation";
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
@@ -14,6 +15,10 @@ export async function generateStaticParams() {
 export default async function Page({ params }: { params: { slug: string } }) {
   const client = createClient();
   console.log(`fetching ${params.slug}`);
-  const page = await client.getByUID("page", params.slug);
-  return <SliceZone slices={page.data.slices} components={components} />;
+  try {
+    const page = await client.getByUID("page", params.slug);
+    return <SliceZone slices={page.data.slices} components={components} />;
+  } catch (error) {
+    return notFound();
+  }
 }
