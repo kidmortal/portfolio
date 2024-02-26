@@ -1,0 +1,30 @@
+{
+  "id": "home",
+  "label": "home",
+  "repeatable": false,
+  "status": true,
+  "format": "custom",
+  "json": {
+    "Main": {
+      "titulos": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label": "Titulos",
+          "placeholder": "Bom dia filho"
+        }
+      },
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "tech_stack": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

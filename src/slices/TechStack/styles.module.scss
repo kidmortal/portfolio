@@ -1,0 +1,15 @@
+@import "@/styles/variables";
+
+.container {
+  color: $color-neutral;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
