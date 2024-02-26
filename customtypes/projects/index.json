@@ -1,11 +1,18 @@
 {
   "format": "page",
-  "id": "home",
-  "label": "home",
+  "id": "projects",
+  "label": "projects",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
+      "titulos": {
+        "type": "Text",
+        "config": {
+          "label": "titulos",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
