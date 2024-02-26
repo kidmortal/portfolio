@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = TechStackSlice;
+type HomeDocumentDataSlicesSlice = HeaderSlice | ProjectsSlice | TechStackSlice;
 
 /**
  * Content for home documents
@@ -65,7 +65,7 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type PageDocumentDataSlicesSlice = TechStackSlice;
+type PageDocumentDataSlicesSlice = ProjectsSlice | HeaderSlice | TechStackSlice;
 
 /**
  * Content for page documents
@@ -126,83 +126,7 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type ProjectsDocumentDataSlicesSlice = TechStackSlice;
-
-/**
- * Content for projects documents
- */
-interface ProjectsDocumentData {
-  /**
-   * titulos field in *projects*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: projects.titulos
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  titulos: prismic.KeyTextField;
-
-  /**
-   * Slice Zone field in *projects*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: projects.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<ProjectsDocumentDataSlicesSlice> /**
-   * Meta Description field in *projects*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: projects.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *projects*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: projects.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *projects*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: projects.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
-}
-
-/**
- * projects document from Prismic
- *
- * - **API ID**: `projects`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type ProjectsDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<ProjectsDocumentData>,
-    "projects",
-    Lang
-  >;
-
-export type AllDocumentTypes = HomeDocument | PageDocument | ProjectsDocument;
+export type AllDocumentTypes = HomeDocument | PageDocument;
 
 /**
  * Primary content in *Header → Primary*
@@ -477,9 +401,6 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
-      ProjectsDocument,
-      ProjectsDocumentData,
-      ProjectsDocumentDataSlicesSlice,
       AllDocumentTypes,
       HeaderSlice,
       HeaderSliceDefaultPrimary,

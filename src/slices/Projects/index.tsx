@@ -2,6 +2,8 @@ import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import styles from "./styles.module.scss";
 import { PrismicNextLink } from "@prismicio/next";
+import { GithubIcon } from "@/assets/github";
+import { LinkIcon } from "@/assets/link";
 
 /**
  * Props for `Projects`.
@@ -23,26 +25,27 @@ const Projects = ({ slice }: ProjectsProps): JSX.Element => {
       <div className={styles.projectsContainer}>
         {slice.items.map((project) => (
           <div key={project.title} className={styles.project}>
-            <img
-              alt={project.cover.alt ?? ""}
-              src={project.cover.url ?? ""}
-              height={25}
-              width={25}
-            />
-            <h3>{project.title}</h3>
-            <span>{project.description}</span>
-            <PrismicNextLink
-              key={`${JSON.stringify(project.preview)}`}
-              field={project.preview}
-            >
-              Live Preview
-            </PrismicNextLink>
-            <PrismicNextLink
-              key={`${JSON.stringify(project.github)}`}
-              field={project.github}
-            >
-              Github
-            </PrismicNextLink>
+            <img alt={project.cover.alt ?? ""} src={project.cover.url ?? ""} />
+            <div className={styles.contentContainer}>
+              <h3>{project.title}</h3>
+              <span>{project.description}</span>
+              <div className={styles.linksContainer}>
+                <PrismicNextLink
+                  key={`${JSON.stringify(project.preview)}`}
+                  field={project.preview}
+                >
+                  <LinkIcon />
+                  <span>Live Preview</span>
+                </PrismicNextLink>
+                <PrismicNextLink
+                  key={`${JSON.stringify(project.github)}`}
+                  field={project.github}
+                >
+                  <GithubIcon />
+                  <span>Github</span>
+                </PrismicNextLink>
+              </div>
+            </div>
           </div>
         ))}
       </div>
