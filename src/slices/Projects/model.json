@@ -1,0 +1,72 @@
+{
+  "id": "projects",
+  "type": "SharedSlice",
+  "name": "Projects",
+  "description": "Projects",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "cover": {
+          "type": "Image",
+          "config": {
+            "label": "cover",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "description",
+            "placeholder": ""
+          }
+        },
+        "preview": {
+          "type": "Link",
+          "config": {
+            "label": "preview",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "github": {
+          "type": "Link",
+          "config": {
+            "label": "github",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    }
+  ]
+}
