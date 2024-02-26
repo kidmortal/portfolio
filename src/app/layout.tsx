@@ -23,7 +23,9 @@ export default function RootLayout({
           defer
           src="https://static.cdn.prismic.io/prismic.js?new=true&repo=kidmortal"
         ></script>
-        <div className={styles.container}>{children}</div>
+        <div className={styles.container}>
+          <div className={styles.pageContainer}>{children}</div>
+        </div>
       </body>
     </html>
   );

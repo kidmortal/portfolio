@@ -14,7 +14,6 @@ export type HeaderProps = SliceComponentProps<Content.HeaderSlice>;
  */
 const Header = ({ slice }: HeaderProps): JSX.Element => {
   const { logo } = slice.primary;
-  console.log(slice.items[0].link);
   return (
     <section
       data-slice-type={slice.slice_type}
