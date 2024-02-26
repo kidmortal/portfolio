@@ -45,7 +45,35 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-export type AllDocumentTypes = HomeDocument;
+/**
+ * Content for teste documents
+ */
+interface TesteDocumentData {
+  /**
+   * text field in *teste*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: teste.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * teste document from Prismic
+ *
+ * - **API ID**: `teste`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TesteDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<TesteDocumentData>, "teste", Lang>;
+
+export type AllDocumentTypes = HomeDocument | TesteDocument;
 
 /**
  * Primary content in *TechStack → Primary*
@@ -130,6 +158,8 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataBodySlice,
+      TesteDocument,
+      TesteDocumentData,
       AllDocumentTypes,
       TechStackSlice,
       TechStackSliceDefaultPrimary,
