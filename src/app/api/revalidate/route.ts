@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     revalidatedPaths.push("/");
     const documents = await client.getAllByType("page");
     for await (const doc of documents) {
-      const url = `${doc.uid}`;
+      const url = `/${doc.uid}`;
       revalidatePath(url);
       revalidatedPaths.push(url);
     }
