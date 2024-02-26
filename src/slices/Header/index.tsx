@@ -20,7 +20,10 @@ const Header = ({ slice }: HeaderProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className={styles.container}
     >
-      <img alt={logo.alt} src={logo.url} height={50} width={50} />
+      <When value={!!logo.url}>
+        <img alt={logo.alt ?? ""} src={logo.url ?? ""} height={50} width={50} />
+      </When>
+
       <div className={styles.linksContainer}>
         {slice.items.map((item) => (
           <PrismicNextLink
@@ -29,8 +32,8 @@ const Header = ({ slice }: HeaderProps): JSX.Element => {
           >
             <When value={!!item.icon.url}>
               <img
-                alt={item.icon.alt}
-                src={item.icon.url}
+                alt={item.icon.alt ?? ""}
+                src={item.icon.url ?? ""}
                 height={25}
                 width={25}
               />
