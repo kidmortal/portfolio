@@ -24,6 +24,10 @@
     color: $color-neutral-light;
     font-size: 18px;
   }
+
+  @media (max-width: $mobile-breakpoint) {
+    flex-direction: column;
+  }
 }
 
 .project {
