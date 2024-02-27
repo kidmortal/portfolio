@@ -1,6 +1,7 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import styles from "./styles.module.scss";
+import { Tooltip } from "@/components/Tooltip";
 
 /**
  * Props for `TechStack`.
@@ -21,13 +22,14 @@ const TechStack = ({ slice }: TechStackProps): JSX.Element => {
       <span>{slice.primary.description}</span>
       <div className={styles.iconsGrid}>
         {slice.items.map(({ icon }) => (
-          <img
-            key={icon.url}
-            alt={icon.alt ?? "default-alt"}
-            src={icon.url ?? ""}
-            width={120}
-            height={120}
-          />
+          <Tooltip key={icon.url} text={icon.alt ?? ""}>
+            <img
+              alt={icon.alt ?? "default-alt"}
+              src={icon.url ?? ""}
+              width={120}
+              height={120}
+            />
+          </Tooltip>
         ))}
       </div>
     </section>
