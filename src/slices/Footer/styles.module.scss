@@ -1,0 +1,33 @@
+@import "@/styles/variables";
+
+.container {
+  color: $color-neutral;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+
+  @media (max-width: $mobile-breakpoint) {
+    display: none;
+  }
+}
+
+.linksContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  a {
+    text-decoration: none;
+    color: $color-neutral-light;
+    font-size: 18px;
+  }
+}
+
+.descriptionContainer {
+  min-width: 300px;
+}
