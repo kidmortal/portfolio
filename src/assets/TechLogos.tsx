@@ -264,7 +264,7 @@ function PrismicCMSLogo() {
   );
 }
 
-export const TechLogos = {
+export const TechLogos: any = {
   electron: ElectronLogo(),
   react: ReactLogo(),
   nestjs: NestJsLogo(),
