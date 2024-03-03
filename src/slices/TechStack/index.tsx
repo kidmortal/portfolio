@@ -23,12 +23,7 @@ const TechStack = ({ slice }: TechStackProps): JSX.Element => {
       <div className={styles.iconsGrid}>
         {slice.items.map(({ icon }) => (
           <Tooltip key={icon.url} text={icon.alt ?? ""}>
-            <img
-              alt={icon.alt ?? "default-alt"}
-              src={icon.url ?? ""}
-              width={120}
-              height={120}
-            />
+            <img alt={icon.alt ?? "default-alt"} src={icon.url ?? ""} />
           </Tooltip>
         ))}
       </div>

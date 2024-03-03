@@ -15,7 +15,16 @@
   gap: 1.5rem;
   grid-template-columns: repeat(6, 1fr);
 
+  img {
+    width: 120px;
+    height: 120px;
+  }
+
   @media (max-width: $mobile-breakpoint) {
     grid-template-columns: repeat(3, 1fr);
+    img {
+      width: 60px;
+      height: 60px;
+    }
   }
 }

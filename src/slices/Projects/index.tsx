@@ -2,8 +2,8 @@ import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import styles from "./styles.module.scss";
 import { PrismicNextLink } from "@prismicio/next";
-import { GithubIcon } from "@/assets/github";
-import { LinkIcon } from "@/assets/link";
+import { GithubIcon } from "@/assets/Github";
+import { LinkIcon } from "@/assets/Link";
 
 /**
  * Props for `Projects`.
