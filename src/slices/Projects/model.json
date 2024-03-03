@@ -65,6 +65,13 @@
             "placeholder": "",
             "select": null
           }
+        },
+        "stack": {
+          "type": "Text",
+          "config": {
+            "label": "stack",
+            "placeholder": ""
+          }
         }
       }
     }

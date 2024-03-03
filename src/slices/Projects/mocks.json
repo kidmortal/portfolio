@@ -48,16 +48,16 @@
 						"title",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "thank",
-							"type": "Text"
+							"type": "Text",
+							"value": "Project"
 						}
 					],
 					[
 						"description",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "baby",
-							"type": "Text"
+							"type": "Text",
+							"value": "very nice project description here for study purposes"
 						}
 					],
 					[
@@ -78,6 +78,22 @@
 								"__TYPE__": "ExternalLink",
 								"url": "https://slicemachine.dev"
 							}
+						}
+					],
+					[
+						"stack",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "go,node,react"
+						}
+					],
+					[
+						"technologies",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "2"
 						}
 					]
 				]

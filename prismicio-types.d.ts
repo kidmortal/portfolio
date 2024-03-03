@@ -358,6 +358,16 @@ export interface ProjectsSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   github: prismic.LinkField;
+
+  /**
+   * stack field in *Projects → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.items[].stack
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  stack: prismic.KeyTextField;
 }
 
 /**
