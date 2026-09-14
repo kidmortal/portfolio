@@ -1,4 +1,4 @@
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import styles from "./styles.module.scss";
 import { PrismicNextLink } from "@prismicio/next";
@@ -18,64 +18,73 @@ export type ProjectsProps = SliceComponentProps<Content.ProjectsSlice>;
 const Projects = ({ slice }: ProjectsProps): JSX.Element => {
   return (
     <section
+      id="projects"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={styles.container}
     >
-      <h1>{slice.primary.title}</h1>
-      <h3>{slice.primary.description}</h3>
-      <div className={styles.projectsContainer}>
-        {slice.items.map((project) => {
-          const technologies = project?.stack?.replace(" ", "").split(",");
+      <div className={styles.heading}>
+        <h2>{slice.primary.title}</h2>
+        {slice.primary.description && <p>{slice.primary.description}</p>}
+      </div>
+
+      <ul className={styles.grid}>
+        {slice.items.map((project, i) => {
+          const technologies = project.stack
+            ?.split(",")
+            .map((t) => t.trim().toLowerCase())
+            .filter(Boolean);
 
           return (
-            <div key={project.title} className={styles.project}>
-              <img
-                alt={project.cover.alt ?? ""}
-                src={project.cover.url ?? ""}
-              />
-              <div className={styles.contentContainer}>
-                <div className={styles.textContentContainer}>
-                  <h1>{project.title}</h1>
-                  <span>{project.description}</span>
+            <li key={`${project.title}-${i}`} className={styles.card}>
+              {isFilled.image(project.cover) && (
+                <div className={styles.cover}>
+                  <img
+                    alt={project.cover.alt ?? project.title ?? ""}
+                    src={project.cover.url}
+                    loading="lazy"
+                  />
                 </div>
-                <div></div>
-                <span className={styles.stackContainer}>
-                  {technologies?.map((tech) => <Logo key={tech} name={tech} />)}
-                </span>
-                <div className={styles.linksContainer}>
-                  <PrismicNextLink
-                    key={`${JSON.stringify(project.preview)}`}
-                    field={project.preview}
-                  >
-                    <LinkIcon />
-                    <span>Preview</span>
-                  </PrismicNextLink>
-                  <PrismicNextLink
-                    key={`${JSON.stringify(project.github)}`}
-                    field={project.github}
-                  >
-                    <GithubIcon />
-                    <span>Github</span>
-                  </PrismicNextLink>
+              )}
+
+              <div className={styles.body}>
+                <h3 className={styles.title}>{project.title}</h3>
+                {project.description && (
+                  <p className={styles.description}>{project.description}</p>
+                )}
+
+                <div className={styles.footer}>
+                  <div className={styles.stack}>
+                    {technologies?.map((tech) => <Logo key={tech} name={tech} />)}
+                  </div>
+                  <div className={styles.links}>
+                    {isFilled.link(project.preview) && (
+                      <PrismicNextLink field={project.preview} className={styles.link}>
+                        <LinkIcon />
+                        <span>Live</span>
+                      </PrismicNextLink>
+                    )}
+                    {isFilled.link(project.github) && (
+                      <PrismicNextLink field={project.github} className={styles.link}>
+                        <GithubIcon />
+                        <span>Code</span>
+                      </PrismicNextLink>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </section>
   );
 };
 
 function Logo({ name }: { name: string }) {
-  const selectedLogo = TechLogos[name] as any;
-
-  if (selectedLogo) {
-    return <Tooltip text={name}>{selectedLogo}</Tooltip>;
-  } else {
-    return "";
-  }
+  const selectedLogo = TechLogos[name as keyof typeof TechLogos];
+  if (!selectedLogo) return null;
+  return <Tooltip text={name}>{selectedLogo}</Tooltip>;
 }
 
 export default Projects;

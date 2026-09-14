@@ -1,0 +1,56 @@
+{
+  "id": "experience",
+  "type": "SharedSlice",
+  "name": "Experience",
+  "description": "Work experience timeline",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": { "label": "Title", "placeholder": "e.g. Experience" }
+        },
+        "description": {
+          "type": "Text",
+          "config": { "label": "Description", "placeholder": "Optional one-liner" }
+        }
+      },
+      "items": {
+        "company": {
+          "type": "Text",
+          "config": { "label": "Company", "placeholder": "" }
+        },
+        "role": {
+          "type": "Text",
+          "config": { "label": "Role", "placeholder": "" }
+        },
+        "period": {
+          "type": "Text",
+          "config": { "label": "Period", "placeholder": "e.g. Jul 2024 — Present" }
+        },
+        "location": {
+          "type": "Text",
+          "config": { "label": "Location", "placeholder": "" }
+        },
+        "summary": {
+          "type": "Text",
+          "config": { "label": "Summary", "placeholder": "One or two short sentences" }
+        },
+        "stack": {
+          "type": "Text",
+          "config": { "label": "Stack", "placeholder": "Comma separated, e.g. React, TypeScript, Module Federation" }
+        },
+        "link": {
+          "type": "Link",
+          "config": { "label": "Company link", "placeholder": "", "select": null, "allowTargetBlank": true }
+        }
+      }
+    }
+  ]
+}

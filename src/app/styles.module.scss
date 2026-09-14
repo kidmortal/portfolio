@@ -3,18 +3,23 @@
 .container {
   width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  background-color: $color-dark;
+  background-color: $color-bg;
+  background-image: radial-gradient(
+    ellipse 70% 40% at 50% -10%,
+    rgba(124, 156, 255, 0.14),
+    transparent 60%
+  );
 }
 
 .pageContainer {
   width: 100%;
+  max-width: $container-width;
+  padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  max-width: 1480px;
+  flex: 1;
 }

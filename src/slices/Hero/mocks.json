@@ -1,0 +1,127 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "eyebrow": {
+        "__TYPE__": "FieldContent",
+        "value": "Full Stack Software Engineer",
+        "type": "Text"
+      },
+      "name": {
+        "__TYPE__": "FieldContent",
+        "value": "Allan Falcão",
+        "type": "Text"
+      },
+      "headline": {
+        "__TYPE__": "FieldContent",
+        "value": "I build fast, maintainable web products with React, TypeScript and Node.",
+        "type": "Text"
+      },
+      "summary": {
+        "__TYPE__": "FieldContent",
+        "value": "9+ years shipping web apps, internal platforms, design systems and microfrontends across startups and enterprise.",
+        "type": "Text"
+      },
+      "location": {
+        "__TYPE__": "FieldContent",
+        "value": "São Paulo, Brazil",
+        "type": "Text"
+      },
+      "linkedin": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://www.linkedin.com/in/allanfalcao-5101b8119",
+          "target": "_blank"
+        }
+      },
+      "github": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://github.com/kidmortal",
+          "target": "_blank"
+        }
+      },
+      "resume": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://resume.io/r/EFh3zL6ZF",
+          "target": "_blank"
+        }
+      },
+      "email": {
+        "__TYPE__": "FieldContent",
+        "value": "kidmortal@gmail.com",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "value",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "9+",
+              "type": "Text"
+            }
+          ],
+          [
+            "label",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Years of experience",
+              "type": "Text"
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "value",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "React",
+              "type": "Text"
+            }
+          ],
+          [
+            "label",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Primary stack",
+              "type": "Text"
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "value",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Full stack",
+              "type": "Text"
+            }
+          ],
+          [
+            "label",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Frontend focus, Node/NestJS backend",
+              "type": "Text"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

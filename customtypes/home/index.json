@@ -11,10 +11,13 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "experience": {
+              "type": "SharedSlice"
+            },
             "footer": {
               "type": "SharedSlice"
             },
-            "header": {
+            "hero": {
               "type": "SharedSlice"
             },
             "projects": {

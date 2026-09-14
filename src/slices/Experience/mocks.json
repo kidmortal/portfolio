@@ -1,0 +1,179 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "Experience",
+        "type": "Text"
+      },
+      "description": {
+        "__TYPE__": "FieldContent",
+        "value": "9+ years across startups and enterprise.",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "company",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "act digital",
+              "type": "Text"
+            }
+          ],
+          [
+            "role",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Frontend Developer",
+              "type": "Text"
+            }
+          ],
+          [
+            "period",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Jul 2024 — Present",
+              "type": "Text"
+            }
+          ],
+          [
+            "location",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "São Paulo, Brazil",
+              "type": "Text"
+            }
+          ],
+          [
+            "summary",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Internal dashboards with microfrontends (Module Federation) and a shared component library documented in Storybook.",
+              "type": "Text"
+            }
+          ],
+          [
+            "stack",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "React, TypeScript, Styled Components, Module Federation, Storybook",
+              "type": "Text"
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "company",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Amo Promo",
+              "type": "Text"
+            }
+          ],
+          [
+            "role",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Software Engineer",
+              "type": "Text"
+            }
+          ],
+          [
+            "period",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Jun 2021 — Jun 2024",
+              "type": "Text"
+            }
+          ],
+          [
+            "location",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Minas Gerais, Brazil",
+              "type": "Text"
+            }
+          ],
+          [
+            "summary",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "React/Next.js apps with Strapi CMS, Jest & Cypress test suites, Flutter mobile app and internal npm libraries.",
+              "type": "Text"
+            }
+          ],
+          [
+            "stack",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "React, Next.js, TypeScript, Strapi, Jest, Cypress, Flutter, Rollup",
+              "type": "Text"
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "company",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Pyramid",
+              "type": "Text"
+            }
+          ],
+          [
+            "role",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Full Stack Developer",
+              "type": "Text"
+            }
+          ],
+          [
+            "period",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Apr 2017 — Jun 2021",
+              "type": "Text"
+            }
+          ],
+          [
+            "location",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Diadema, Brazil",
+              "type": "Text"
+            }
+          ],
+          [
+            "summary",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "ERP integrations and cron jobs in NestJS, SEO pages in Next.js, admin dashboards, Java file-processing tools and Electron utilities.",
+              "type": "Text"
+            }
+          ],
+          [
+            "stack",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "React, Next.js, NestJS, Java, Electron, Chart.js",
+              "type": "Text"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

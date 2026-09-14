@@ -1,0 +1,135 @@
+@import "@/styles/variables";
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 5rem 0 $section-gap;
+
+  @media (max-width: $mobile-breakpoint) {
+    gap: 2rem;
+    padding: 3rem 0 2.5rem;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.eyebrow {
+  @include chip;
+  color: $color-accent;
+  border-color: rgba(124, 156, 255, 0.35);
+  background: $color-accent-soft;
+  font-weight: 500;
+}
+
+.name {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: $color-text;
+}
+
+.headline {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 500;
+  color: $color-text;
+  max-width: 34ch;
+  line-height: 1.35;
+}
+
+.summary {
+  color: $color-text-muted;
+  font-size: 1rem;
+  max-width: 56ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.button,
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid $color-border;
+  color: $color-text;
+  background: $color-surface;
+  transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    background: $color-surface-hover;
+    border-color: lighten($color-border, 12%);
+    transform: translateY(-1px);
+  }
+}
+
+.primaryButton {
+  background: $color-accent;
+  border-color: $color-accent;
+  color: $color-bg;
+
+  &:hover {
+    background: lighten($color-accent, 5%);
+    border-color: lighten($color-accent, 5%);
+  }
+}
+
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: $color-text-faint;
+  font-size: 0.85rem;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.stat {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 1.1rem 1.25rem;
+
+  strong {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: $color-text;
+  }
+
+  span {
+    color: $color-text-muted;
+    font-size: 0.85rem;
+  }
+}

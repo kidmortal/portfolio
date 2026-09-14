@@ -13,25 +13,22 @@ export type FooterProps = SliceComponentProps<Content.FooterSlice>;
  */
 const Footer = ({ slice }: FooterProps): JSX.Element => {
   return (
-    <section
+    <footer
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={styles.container}
     >
-      <div className={styles.linksContainer}>
-        {slice.items.map((item) => (
-          <PrismicNextLink
-            key={`${JSON.stringify(item.link)}`}
-            field={item.link}
-          >
+      <nav className={styles.links} aria-label="Footer">
+        {slice.items.map((item, i) => (
+          <PrismicNextLink key={`${item.label}-${i}`} field={item.link} className={styles.link}>
             {item.label}
           </PrismicNextLink>
         ))}
-      </div>
-      <div className={styles.descriptionContainer}>
+      </nav>
+      <div className={styles.description}>
         <PrismicRichText field={slice.primary.description} />
       </div>
-    </section>
+    </footer>
   );
 };
 

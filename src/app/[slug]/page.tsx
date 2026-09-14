@@ -14,7 +14,6 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const client = createClient();
-  console.log(`fetching ${params.slug}`);
   try {
     const page = await client.getByUID("page", params.slug);
     return <SliceZone slices={page.data.slices} components={components} />;

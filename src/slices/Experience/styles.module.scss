@@ -1,0 +1,92 @@
+@import "@/styles/variables";
+
+.container {
+  @include section;
+}
+
+.heading {
+  @include section-heading;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $color-border;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid $color-border;
+
+  @media (max-width: $tablet-breakpoint) {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1.5rem 0;
+  }
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-top: 0.2rem;
+}
+
+.period {
+  color: $color-text;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.location {
+  color: $color-text-faint;
+  font-size: 0.82rem;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.role {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $color-text;
+  letter-spacing: -0.01em;
+}
+
+.at {
+  color: $color-text-faint;
+  font-weight: 400;
+}
+
+.company {
+  color: $color-accent;
+  font-weight: 500;
+}
+
+a.company:hover {
+  text-decoration: underline;
+}
+
+.summary {
+  color: $color-text-muted;
+  font-size: 0.95rem;
+  max-width: 68ch;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+
+  li {
+    @include chip;
+  }
+}

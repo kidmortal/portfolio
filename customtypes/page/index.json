@@ -17,13 +17,16 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "experience": {
+              "type": "SharedSlice"
+            },
             "footer": {
               "type": "SharedSlice"
             },
-            "projects": {
+            "hero": {
               "type": "SharedSlice"
             },
-            "header": {
+            "projects": {
               "type": "SharedSlice"
             },
             "tech_stack": {

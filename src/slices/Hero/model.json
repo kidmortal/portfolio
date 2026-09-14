@@ -1,0 +1,103 @@
+{
+  "id": "hero",
+  "type": "SharedSlice",
+  "name": "Hero",
+  "description": "Intro section: name, role, short pitch, stats and contact links",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "Eyebrow",
+            "placeholder": "e.g. Full Stack Software Engineer"
+          }
+        },
+        "name": {
+          "type": "Text",
+          "config": {
+            "label": "Name",
+            "placeholder": "e.g. Allan Falcão"
+          }
+        },
+        "headline": {
+          "type": "Text",
+          "config": {
+            "label": "Headline",
+            "placeholder": "One line about what you build"
+          }
+        },
+        "summary": {
+          "type": "Text",
+          "config": {
+            "label": "Summary",
+            "placeholder": "2-3 short sentences max"
+          }
+        },
+        "location": {
+          "type": "Text",
+          "config": {
+            "label": "Location",
+            "placeholder": "e.g. São Paulo, Brazil"
+          }
+        },
+        "linkedin": {
+          "type": "Link",
+          "config": {
+            "label": "LinkedIn",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true
+          }
+        },
+        "github": {
+          "type": "Link",
+          "config": {
+            "label": "GitHub",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true
+          }
+        },
+        "resume": {
+          "type": "Link",
+          "config": {
+            "label": "Resume",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true
+          }
+        },
+        "email": {
+          "type": "Text",
+          "config": {
+            "label": "Email",
+            "placeholder": "you@example.com"
+          }
+        }
+      },
+      "items": {
+        "value": {
+          "type": "Text",
+          "config": {
+            "label": "Stat value",
+            "placeholder": "e.g. 9+"
+          }
+        },
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Stat label",
+            "placeholder": "e.g. years of experience"
+          }
+        }
+      }
+    }
+  ]
+}

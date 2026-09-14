@@ -5,8 +5,9 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomeDocumentDataSlicesSlice =
+  | ExperienceSlice
+  | HeroSlice
   | FooterSlice
-  | HeaderSlice
   | ProjectsSlice
   | TechStackSlice;
 
@@ -70,9 +71,10 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type PageDocumentDataSlicesSlice =
+  | ExperienceSlice
+  | HeroSlice
   | FooterSlice
   | ProjectsSlice
-  | HeaderSlice
   | TechStackSlice;
 
 /**
@@ -135,6 +137,105 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 export type AllDocumentTypes = HomeDocument | PageDocument;
+
+/**
+ * Primary content in *Experience → Primary*
+ */
+export interface ExperienceSliceDefaultPrimary {
+  /** Title field in *Experience → Primary* */
+  title: prismic.KeyTextField;
+  /** Description field in *Experience → Primary* */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Experience → Items*
+ */
+export interface ExperienceSliceDefaultItem {
+  /** Company field in *Experience → Items* */
+  company: prismic.KeyTextField;
+  /** Role field in *Experience → Items* */
+  role: prismic.KeyTextField;
+  /** Period field in *Experience → Items* */
+  period: prismic.KeyTextField;
+  /** Location field in *Experience → Items* */
+  location: prismic.KeyTextField;
+  /** Summary field in *Experience → Items* */
+  summary: prismic.KeyTextField;
+  /** Stack field in *Experience → Items* (comma separated) */
+  stack: prismic.KeyTextField;
+  /** Company link field in *Experience → Items* */
+  link: prismic.LinkField;
+}
+
+/**
+ * Default variation for Experience Slice
+ */
+export type ExperienceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ExperienceSliceDefaultPrimary>,
+  Simplify<ExperienceSliceDefaultItem>
+>;
+
+type ExperienceSliceVariation = ExperienceSliceDefault;
+
+/**
+ * Experience Shared Slice
+ */
+export type ExperienceSlice = prismic.SharedSlice<
+  "experience",
+  ExperienceSliceVariation
+>;
+
+/**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /** Eyebrow field in *Hero → Primary* */
+  eyebrow: prismic.KeyTextField;
+  /** Name field in *Hero → Primary* */
+  name: prismic.KeyTextField;
+  /** Headline field in *Hero → Primary* */
+  headline: prismic.KeyTextField;
+  /** Summary field in *Hero → Primary* */
+  summary: prismic.KeyTextField;
+  /** Location field in *Hero → Primary* */
+  location: prismic.KeyTextField;
+  /** LinkedIn field in *Hero → Primary* */
+  linkedin: prismic.LinkField;
+  /** GitHub field in *Hero → Primary* */
+  github: prismic.LinkField;
+  /** Resume field in *Hero → Primary* */
+  resume: prismic.LinkField;
+  /** Email field in *Hero → Primary* */
+  email: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Hero → Items*
+ */
+export interface HeroSliceDefaultItem {
+  /** Stat value field in *Hero → Items* */
+  value: prismic.KeyTextField;
+  /** Stat label field in *Hero → Items* */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Hero Slice
+ */
+export type HeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroSliceDefaultPrimary>,
+  Simplify<HeroSliceDefaultItem>
+>;
+
+type HeroSliceVariation = HeroSliceDefault;
+
+/**
+ * Hero Shared Slice
+ */
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
  * Primary content in *Footer → Primary*
@@ -202,83 +303,6 @@ type FooterSliceVariation = FooterSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
-
-/**
- * Primary content in *Header → Primary*
- */
-export interface HeaderSliceDefaultPrimary {
-  /**
-   * logo field in *Header → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header.primary.logo
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  logo: prismic.ImageField<never>;
-}
-
-/**
- * Primary content in *Header → Items*
- */
-export interface HeaderSliceDefaultItem {
-  /**
-   * link field in *Header → Items*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header.items[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-
-  /**
-   * icon field in *Header → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header.items[].icon
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  icon: prismic.ImageField<never>;
-
-  /**
-   * label field in *Header → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header.items[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-}
-
-/**
- * Default variation for Header Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeaderSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<HeaderSliceDefaultPrimary>,
-  Simplify<HeaderSliceDefaultItem>
->;
-
-/**
- * Slice variation for *Header*
- */
-type HeaderSliceVariation = HeaderSliceDefault;
-
-/**
- * Header Shared Slice
- *
- * - **API ID**: `header`
- * - **Description**: Header
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeaderSlice = prismic.SharedSlice<"header", HeaderSliceVariation>;
 
 /**
  * Primary content in *Projects → Primary*
@@ -487,16 +511,21 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ExperienceSlice,
+      ExperienceSliceDefaultPrimary,
+      ExperienceSliceDefaultItem,
+      ExperienceSliceVariation,
+      ExperienceSliceDefault,
+      HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceDefaultItem,
+      HeroSliceVariation,
+      HeroSliceDefault,
       FooterSlice,
       FooterSliceDefaultPrimary,
       FooterSliceDefaultItem,
       FooterSliceVariation,
       FooterSliceDefault,
-      HeaderSlice,
-      HeaderSliceDefaultPrimary,
-      HeaderSliceDefaultItem,
-      HeaderSliceVariation,
-      HeaderSliceDefault,
       ProjectsSlice,
       ProjectsSliceDefaultPrimary,
       ProjectsSliceDefaultItem,

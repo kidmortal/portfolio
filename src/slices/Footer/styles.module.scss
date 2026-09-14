@@ -1,33 +1,44 @@
 @import "@/styles/variables";
 
 .container {
-  color: $color-neutral;
   width: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  margin-top: auto;
+  border-top: 1px solid $color-border;
 
-  @media (max-width: $mobile-breakpoint) {
-    display: none;
+  @media (max-width: $tablet-breakpoint) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
-.linksContainer {
+.links {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.link {
+  color: $color-text-muted;
+  font-size: 0.9rem;
+  transition: color 150ms ease;
+
+  &:hover {
+    color: $color-text;
+  }
+}
+
+.description {
+  color: $color-text-faint;
+  font-size: 0.82rem;
+  line-height: 1.5;
 
   a {
-    text-decoration: none;
-    color: $color-neutral-light;
-    font-size: 18px;
+    color: $color-text-muted;
   }
-}
-
-.descriptionContainer {
-  min-width: 300px;
 }

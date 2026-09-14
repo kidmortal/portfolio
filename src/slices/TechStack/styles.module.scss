@@ -1,30 +1,57 @@
 @import "@/styles/variables";
 
 .container {
-  color: $color-neutral;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include section;
 }
 
-.iconsGrid {
-  margin-top: 2rem;
+.heading {
+  @include section-heading;
+}
+
+.grid {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+
+  @media (max-width: $tablet-breakpoint) {
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  }
+}
+
+.tech {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.25rem 0.75rem;
+  text-align: center;
 
   img {
-    width: 120px;
-    height: 120px;
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    filter: grayscale(0.25);
+    transition: filter 160ms ease, transform 160ms ease;
   }
 
-  @media (max-width: $mobile-breakpoint) {
-    grid-template-columns: repeat(3, 1fr);
+  span {
+    color: $color-text-muted;
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+
+  &:hover img {
+    filter: none;
+    transform: scale(1.06);
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    padding: 1rem 0.5rem;
     img {
-      width: 60px;
-      height: 60px;
+      width: 36px;
+      height: 36px;
     }
   }
 }
